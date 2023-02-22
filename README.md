@@ -1,0 +1,1 @@
+# recaudadora4Gdk
