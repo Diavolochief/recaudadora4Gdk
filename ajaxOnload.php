@@ -61,7 +61,7 @@ while(odbc_fetch_array($result)){
 }
 ?>
 <?
-	  $sql_1 = "select top 5 b.dependencia,b.id_dependencia,a.solicitud,c.posicion,c.lugar, hora_atencion, a.id_solicitud,b.letra from 
+	  $sql_1 = "select top 5 b.dependencia,b.id_dependencia,a.solicitud,c.posicion,c.lugar as lugar1, hora_atencion, a.id_solicitud,b.letra from 
 solicitud a, c_dependencias b, usuario c where 
 a.estatus = 'A' and a.id_dependencia = b.id_dependencia and
 a.id_usuario = c.id_usuario order by hora_atencion desc";
@@ -78,7 +78,7 @@ a.id_usuario = c.id_usuario order by hora_atencion desc";
  		$tramite_1 = trim(odbc_result($result_1,"letra")).'-'.trim(odbc_result($result_1,"solicitud"));
 
 		$ventanilla_1=trim(odbc_result($result_1,"posicion"));
-		$lugar=trim(odbc_result($result_1,"lugar"));
+		$lugar=trim(odbc_result($result_1,"lugar1"));
 		
 		//lista de llamados
 		
@@ -130,7 +130,7 @@ if ($hablar == 1)  {
 //die();
 	$sql = "select id_solicitud from ultimo ";
 	$id_solicitud = odbc_result(odbc_exec($link,$sql),"id_solicitud");
-	$sql = "select top 1 b.dependencia,b.id_dependencia,a.solicitud,c.posicion,c.lugar, hora_atencion, a.id_solicitud,b.letra from 
+	$sql = "select top 1 b.dependencia,b.id_dependencia,a.solicitud,c.posicion,c.lugar as lugar1, hora_atencion, a.id_solicitud,b.letra from 
 	solicitud a, c_dependencias b, usuario c where 
 	a.id_solicitud = $id_solicitud and a.id_dependencia = b.id_dependencia and
 	a.id_usuario = c.id_usuario ";
@@ -146,7 +146,7 @@ if ($hablar == 1)  {
  		$tramite = trim(odbc_result($result,"letra")).'-'.odbc_result($result,"solicitud");
 
 		$ventanilla= odbc_result($result,"posicion");
-		$lugar=trim(odbc_result($result,"lugar"));
+		$lugar=trim(odbc_result($result,"lugar1"));
 			
 		$texto = ' '.$tramite.'  '.$ventanilla;
 		//$texto = $texto.' '.$texto;
