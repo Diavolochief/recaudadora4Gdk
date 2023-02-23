@@ -14,7 +14,7 @@
 	<script src="js/flowbite.min.js"></script>
 </head>
 <body>
-<div class="w-full h-1/6 bg-[#A780D5] flex flex-wrap">
+	<div class="w-full h-1/6 bg-[#A780D5] flex flex-wrap">
 		<div class="w-3/4 h-full bg-purple-300 flex flex-row justify-end py-5">
 			<div class="h-full w-1/5 ml-2">
 				<img src="logo.png" alt="image" class="h-full">
@@ -59,7 +59,7 @@
 				<!-- Carousel wrapper -->
 				<div class="relative overflow-hidden h-full mx-auto">
 					<!--Obtener todas las imagentes-->
-					<video src="./video/lost.mp4" width="100%" autoplay height="1000px" controls  loops ></video>
+					<video src="./video/lost.mp4" class="h-full m-auto" autoplay controls  loops ></video>
 					<!--Obtener todas las imagentes-->
 				</div>
 				<!-- Slider controls -->
